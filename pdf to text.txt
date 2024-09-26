@@ -1,0 +1,16 @@
+import PyPDF2
+
+def extract_text_from_pdf(pdf_file):
+    with open(pdf_file, 'rb') as pdf_reader:
+        reader = PyPDF2.PdfReader(pdf_reader)
+        text = ""
+        for page in reader.pages:
+            text += page.extract_text()
+    return text
+
+# Replace with the actual path to your PDF
+pdf_file = '/content/Internship Feedback altitudes.pdf'
+pdf_text = extract_text_from_pdf(pdf_file)
+
+# Process the extracted text here (e.g., print it)
+print(pdf_text)
